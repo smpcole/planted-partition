@@ -175,6 +175,33 @@ if __name__ == "__main__":
         plt.legend()
         pdf.savefig()
 
+
+        # Scatterplot, no best fit curve
+        
+        plt.figure(4)
+        plt.clf()
+        
+        x = []
+        y = []
+        colors = []
+        for m in results:
+            for k in range(2, len(results[m])):
+                x.append(m)
+                y.append(k)
+                colors.append(float(results[m][k]) / T) # Darker colors for higher proportion of success
+
+        colors = numpy.array(colors)
+        plt.scatter(x, y, c = colors, cmap = "Blues", edgecolors = "face")
+
+        plt.xlabel(r"$n$")
+        #plt.ylabel(r"Max # parts that can be recovered w/prb. $> %.2f$" % threshold)
+        plt.ylabel(r"$k$ (number of parts)")
+        #plt.legend([curve])
+        plt.legend()
+        plt.axis([0, n + nincr, 0, maxmaxk + 2])
+        pdf.savefig()
+
+        
         pdf.close()
         
 
