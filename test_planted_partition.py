@@ -201,6 +201,24 @@ if __name__ == "__main__":
         plt.axis([0, n + nincr, 0, maxmaxk + 2])
         pdf.savefig()
 
+
+        # Log running time
+        
+        plt.figure(5)
+        plt.clf()
+
+        handles = []
+        for k in runningtimes:
+            h, = plt.plot(runningtimes[k][0], math.log(runningtimes[k][1]), label = r"$k = %d$" % k)
+            handles.append(h)
+
+        plt.xlabel(r"$n$")
+        plt.ylabel("$\ln$(Avg. running time) (seconds)")
+        #plt.legend(handles)
+        plt.legend()
+        pdf.savefig()
+
+
         
         pdf.close()
         
