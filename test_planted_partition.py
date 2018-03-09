@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
         handles = []
         for k in runningtimes:
-            h, = plt.plot(runningtimes[k][0], math.log(runningtimes[k][1]), label = r"$k = %d$" % k)
+            h, = plt.plot(runningtimes[k][0], [math.log(t) for t in runningtimes[k][1]], label = r"$k = %d$" % k)
             handles.append(h)
 
         plt.xlabel(r"$n$")
