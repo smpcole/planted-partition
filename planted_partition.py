@@ -24,7 +24,12 @@ def distr_matrix(diag, off_diag, sizes, n = None):
 # Return planted clique expectation matrix
 def planted_clique(p, q, n, s):
     return exp_matrix(p, q, [s], n)
-    
+
+# Return eigenvector corresponding to 2nd largest eigenvector of A
+def eig2(A):
+    n = A.shape[0]
+    l, V = numpy.linalg.eigh(A)
+    return V[:, n - 2]
 
 # exp_matrix is simply a placeholder for distr_matrix with float entries
 exp_matrix = distr_matrix
