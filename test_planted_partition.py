@@ -22,7 +22,7 @@ if __name__ == "__main__":
     
     ns = range(nmin, nmax, nincr)
 
-    MAX_TIME = 24 * 60 * 60 # 24 hrs
+    MAX_TIME = float("inf")
     timeout = False
     
     results = {}
