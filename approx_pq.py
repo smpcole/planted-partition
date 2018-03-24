@@ -26,6 +26,12 @@ def test_approx_np(ns, clustersize, p, q):
         errors.append(numpy.abs(n * p - nphat))
     return truens, errors
 
+# Compute the trace of A^k, where A is Hermitian
+def tr(A, k):
+    l, _ = numpy.linalg.eigh(A)
+    return sum(l**k)
+
+
 if __name__ == "__main__":
     random.seed()
     numpy.set_printoptions(precision = 2, linewidth = 200, suppress = True, threshold = 10000)
