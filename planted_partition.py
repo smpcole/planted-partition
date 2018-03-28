@@ -34,6 +34,10 @@ def eig2(A):
 # exp_matrix is simply a placeholder for distr_matrix with float entries
 exp_matrix = distr_matrix
 
+# Return a list of k random sizes between lb and ub
+def random_sizes(k, lb, ub):
+    return [random.randint(lb, ub) for i in range(k)]
+
 def rel_error(A, B):
     # TODO: should we really divide by n^2?  There are never n^2 errors...
     n = A.shape[0]
