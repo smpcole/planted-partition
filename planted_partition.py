@@ -34,9 +34,19 @@ def eig2(A):
 # exp_matrix is simply a placeholder for distr_matrix with float entries
 exp_matrix = distr_matrix
 
-# Return a list of k random sizes between lb and ub
-def random_sizes(k, lb, ub):
-    return [random.randint(lb, ub) for i in range(k)]
+# Return a list of k random sizes separated by at least sep
+# Each size is a uniformly distributed random variable with range of size rng
+# If rng is 0 the cluster sizes are deterministic
+def random_sizes(k, sep = 0, rng = 1):
+    min = sep
+    max = sep + rng
+    sizes = []
+    for i in range(k):
+        sizes.append(random.randint(min, max))
+        min = max + sep
+        max = min + rng
+    sizes.reverse()
+    return sizes
 
 def rel_error(A, B):
     # TODO: should we really divide by n^2?  There are never n^2 errors...
